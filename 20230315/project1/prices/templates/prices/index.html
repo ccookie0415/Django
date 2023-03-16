@@ -7,12 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    {% if food in product_price %}
-        <p>{{food}} {{cnt}}개의 가격은 {{total}} 입니다.</p>
-
-    {% else %}
-        <p>{{food}}는 없어용 </p>
-    
-    {% endif %}
+    <p> {{food}} {{cnt}} {{total}}</p>
+{% if total %}
+    물건이 있어
+{% else %}
+    없소용
+{% endif %}
 </body>
 </html>

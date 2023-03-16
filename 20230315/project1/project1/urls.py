@@ -19,5 +19,5 @@ from prices import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('prices/<str:food>/<int:cnt>/', views.sum_num),
+    path('prices/<str:food>/<int:cnt>/', views.price),
 ]

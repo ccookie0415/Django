@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <p> oops! I catch only {{second_thing|random}} ㅠㅠ </p>
+  <p> throw!
+
+  <form action="{% url 'throw_loops:first' %}" method="GET">
+    <label for="third_thing">
+    <input type="text", id="third_thing", name="third_thing">
+    <input type="submit" value="휙">
+  </form>
+
+{% endblock content %}

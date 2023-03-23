@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<form action="{% url 'throw_catch:first' %}" method="GET">
+  <p> catch {{first_throw}}을/를 받음 !</p><br>
+  <p> throw : 
+    <label for="second_throw">
+    <input type="text", id="second_throw", name="second_throw">
+    <input type="submit" value="휙">
+  </p>
+</form>
+
+{% endblock content %}

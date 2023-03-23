@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1> 계산결과 </h1><br>
+  {{num1}} + {{num2}} = {{num1|add:num2}}<br><br>
+  {{num1}} - {{num2}} = {{minus}}<br><br>
+  {{num1}} * {{num2}} = {{gob}}<br><br>
+  {% if num2 != 0 %}
+  {{num1}} / {{num2}} = {{div}}<br><br>
+  {% else %}
+  {{num1}} / {{num2}} = {{div}}
+  {% endif %}
+{% endblock content %}

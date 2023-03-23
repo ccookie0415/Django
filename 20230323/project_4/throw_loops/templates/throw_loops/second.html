@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="{% url 'throw_loops:third' %}" method="GET">  
+  <p> catch! I catch {{first_thing}} </p>
+  <p> and throw!
+  <label for="second_thing_1">
+  <input type="text", id="second_thing_1", name="second_thing_1">
+  twice!
+  <label for="second_thing_2">
+  <input type="text", id="second_thing_2", name="second_thing_2">
+  <input type="submit" value="휙">
+  </p>
+</form>
+
+
+{% endblock content %}

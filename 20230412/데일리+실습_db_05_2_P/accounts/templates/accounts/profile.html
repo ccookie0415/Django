@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h3>{{person.username}} 님의 프로필</h3>
+  <div>
+    팔로잉 : {{person.followings.count}} | 팔로워 : {{person.followers.count}}
+  </div>
+    <form action="{% url 'accounts:follow' person.pk %}" method="POST">
+      {% csrf_token %}
+      {% if request.user in person.followers.all %}
+        <button type="submit" class="btn btn-danger">팔로우 취소</button>
+      {% else %}
+        <button type="submit" class="btn btn-success">팔로우</button>
+      {% endif %}
+    </form>
+  <hr>
+  <h4>{{person.username}}님이 작성한 게시글</h2>
+    <hr>
+    {% for movie in person.movie_set.all %}
+    
+    <h5 class='card-title'> {{movie.title}} </h5>
+    <p class='card-text'> {{movie.content}} </p>
+
+    {% endfor %}
+  <hr>
+  <h4>{{person.username}}님이 작성한 댓글</h4>
+    {% for comment in person.comment_set.all %}
+      {{comment.content}}
+    
+    
+    {% endfor %}
+    
+    
+
+
+
+{% endblock content %}

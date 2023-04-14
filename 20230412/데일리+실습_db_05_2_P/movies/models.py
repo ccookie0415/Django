@@ -3,9 +3,8 @@ from django.conf import settings
 
 
 class Movie(models.Model):
-    like_users = models.ManyToManyField(
-        settings.AUTH_USER_MODEL, related_name="like_movies"
-    )
+    like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="like_movies")
+    hate_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="hate_movies")
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=10)
     content = models.TextField()
@@ -25,3 +24,11 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.content
+
+# class ReComment(models.Model):
+#     comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
+#     body = models.CharField('대댓글', max_length=150)
+#     updated_at = models.DateTimeField(auto_now=True)
+
+#     def __str__(self):
+#         return self.body

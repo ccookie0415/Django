@@ -21,6 +21,7 @@
           {% csrf_token %}
           <input type="submit" value="회원탈퇴" class="btn btn-danger btn-sm">
         </form>
+        <a href="{% url 'accounts:profile' user.username %}" class="btn btn-primary btn-sm">내 프로필</a>
       </div>
     {% else %}
       <a href="{% url 'accounts:login' %}" class="btn btn-success btn-sm">로그인</a>

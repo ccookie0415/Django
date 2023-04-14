@@ -16,3 +16,9 @@ class CommentForm(forms.ModelForm):
         model = Comment
         # fields = '__all__'
         exclude = ('movie', 'user',)
+
+# class ReCommentForm(forms.ModelForm):
+
+#     class Meta:
+#         model = ReComment
+#         fields = ('body', 'comment')

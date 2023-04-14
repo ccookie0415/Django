@@ -116,3 +116,21 @@ def likes(request, movie_pk):
             movie.like_users.add(request.user)
         return redirect("movies:index")
     return redirect("accounts:login")
+
+@require_POST
+def hates(request, movie_pk):
+    if request.user.is_authenticated:
+        movie = get_object_or_404(Movie, pk=movie_pk)
+
+        if movie.hate_users.filter(pk=request.user.pk).exists():
+            # if request.user in movie.like_users.all():
+            movie.hate_users.remove(request.user)
+        else:
+            movie.hate_users.add(request.user)
+        return redirect("movies:index")
+    return redirect("accounts:login")
+
+# @login_required
+# def create_recomment(request, movie_pk):
+#     filled_form = ReCommentForm(request.POST)
+#     if filled_form.is_valid():
